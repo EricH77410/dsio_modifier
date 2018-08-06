@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+</head>
+<style>
+  header {
+    height: 100vh;
+    background: url('img/bg.jpg');
+    background-size: cover;
+  }
+  h1{
+    color: #fff;    
+    text-align: center;
+    padding-top: 50px;
+    font-size: 3.5rem;
+    font-weight: bold;
+    letter-spacing:1rem;
+  }
+  .file {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    z-index: -1;
+  }
+  .label-file {
+    cursor: pointer;
+    color: #fff;
+    font-weight: bold;    
+    border-radius: 10px;
+    padding: 10px 30px;
+    background: #ffc107;
+    box-shadow: 1px 5px 10px rgba(255,255,255,.5);
+    transition: .3s ease-in-out;
+  }
+  .label-file:hover{
+    background: #fff;
+    color: #ffc107;    
+  }
+  #file-name{
+    display: block;
+    color: #fff;
+    font-size: 1.5rem;
+  }
+  .main-container{
+    width: 55%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate( -50% ,-50%);
+    border: 1px solid #fff;
+    text-align: center;
+    padding: 30px 20px;
+    box-shadow: 1px 5px 10px rgba(255,255,255,.5);
+  }
+  .main-container input{
+    margin:0 auto;
+  }
+  .main-container button{
+    text-align: center;
+  }
+
+  button{
+    width: 200px;
+    color: #fff !important;
+    font-weight: bold !important;
+    border-radius: 10px !important;
+    padding: 10px 30px !important;
+  }
+</style>
+<body>
+  <header>
+      <h1>SOS DSIO</h1>
+    <div class="main-container">
+      
+      <form action="/" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <label id="file-name">Sélectionner un fichier ...</label>
+          <label for="file" class="label-file">Fichier DSIO à traiter</label>          
+          <input type="file" name="file" class="form-control file" id="file">
+        </div>
+
+        <button type="submit" class="btn btn-warning">Envoyer</button>
+      </form>
+    </div>
+
+  </header>
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script>
+  $(document).ready(function (){
+    console.log('ready')
+    var $inp = $('#file-name');
+    $('#file').on('change', function(){
+      $inp.text (this.value.replace(/C:\\fakepath\\/i, ''))
+    })
+  });
+</script>
+</body>
+</html>
