@@ -7,6 +7,8 @@ var path = require('path')
 
 var server = express();
 
+var PORT = process.env.PORT || 3210
+
 server.use(bodyParser.urlencoded({extended: false}));
 server.use(bodyParser.json());
 server.use(fileupload());
@@ -46,7 +48,7 @@ server.post('/', function(req, res){
   }
 });
 
-server.listen(3210)
+server.listen(PORT)
 
 function modifDsio(dsioFile, cb){
   var dt = Date.now();
